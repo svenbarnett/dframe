@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/_head::head(~{::title})">
+    <title>DFrame主界面</title>
+</head>
+<body class="layui-layout-body">
+
+<div id="LAY_app">
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部栏-->
+        <div th:replace="common/_header::header"></div>
+        <!-- 菜单栏-->
+        <div th:replace="common/_sidebar::sidebar"></div>
+        <!-- 标签栏-->
+        <div th:replace="common/_tabs::tabs"></div>
+        <!-- frame栏-->
+        <div th:replace="common/_body::body"></div>
+        <!-- 遮罩栏-->
+        <div th:replace="common/_shade::shade"></div>
+        <!-- 尾部栏-->
+        <div th:replace="common/_footer::footer"></div>
+    </div>
+</div>
+<script>
+    layui.config({
+        debug: true
+        , base: '../statics/admin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use('index', function (obj) {
+        var $ = layui.$, admin = layui.admin;
+        $("#logout").on("click", function (res) {
+            // console.log(res)
+            admin.req({
+                url: '../frame/user/logout' //实际使用请改成服务端真实接口
+                , type: 'post'
+                , done: function (res) {
+                    // console.log(res);
+                    window.location.reload();
+                }
+            })
+        })
+
+    });
+</script>
+</body>
+</html>

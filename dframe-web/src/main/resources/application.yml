@@ -19,6 +19,6 @@ mybatis:
 
 # shiro Filter 路由
 shiroFilter:
-  loginUrl: frame/login/login
-  successUrl: frame/main/index
-  unauthorizedUrl: frame/main/unauthorized
+  loginUrl: /login
+  successUrl: /
+  unauthorizedUrl: /unauthorized

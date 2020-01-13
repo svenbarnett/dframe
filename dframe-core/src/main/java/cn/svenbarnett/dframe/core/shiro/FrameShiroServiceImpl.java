@@ -54,8 +54,10 @@ public class FrameShiroServiceImpl implements FrameShiroSerivce {
                 filterDefinitionMap.put("/**/" + permission.getUri(), "authc,roles[" + joinRoles + "],perms[" + joinPerms + "]");
             }
         }
-        filterDefinitionMap.put("/**", "anon");
-        filterDefinitionMap.put("/rest/**", "authc");
+        filterDefinitionMap.put("/**/dui/**", "anon");
+        filterDefinitionMap.put("/**/rest/**", "anon");
+        filterDefinitionMap.put("/**", "authc");
+
         // 获取数据库的权限
         LOGGER.debug("#### 获取数据库资源权限为：{}", filterDefinitionMap.toString());
         return filterDefinitionMap;

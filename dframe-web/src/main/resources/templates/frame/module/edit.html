@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>模块编辑</title>
+    <link rel="stylesheet" th:href="@{/statics/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/statics/layui/css/modules/layer/default/layer.css}" media="all">
+    <link rel="stylesheet" th:href="@{/statics/admin/styles/css/admin.css}" media="all">
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-card">
+
+        <div class="layui-card-header">模块信息</div>
+
+        <div class="layui-card-body" style="padding: 15px;">
+            <form class="layui-form" action="" lay-filter="form-body">
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">父模块ID</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pid" id="pid" lay-verify="required|pid"
+                               class="layui-input layui-disabled" disabled>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">模块名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" lay-verify="required|name" autocomplete="off"
+                               placeholder="请输入模块名称" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">模块url</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="url" lay-verify="required" autocomplete="off"
+                               placeholder="请输入模块url" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">是否启用</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="status" value="1" lay-skin="switch" lay-text="启用|禁用" checked>
+
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">排序</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ordernum" lay-verify="required|number" autocomplete="off"
+                               placeholder="请输入排序" value="0" class="layui-input">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">图标</label>
+                    <div class="layui-input-block">
+                        <input id="icon" value="" name="icon" type="hidden" class="layui-input layui-disabled" disabled/>
+                        <button type="button" class="layui-btn" id="iconBtn">选择图标</button><i class="" style="font-size: 30px; margin: 30px 10px" id="icon-show"></i>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-layout-admin">
+                    <div class="layui-input-block">
+                        <div class="layui-footer" style="left: 0;">
+                            <button class="layui-btn" lay-submit="" lay-filter="commit-form">立即提交</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/statics/layui/layui.js}"></script>
+<script th:inline="none">
+    layui.config({
+        base: '../../statics/admin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'form', 'laydate'], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , form = layui.form;
+
+        form.render(null, 'form-body');
+
+        /* 监听提交 */
+        form.on('submit(commit-form)', function (data) {
+            admin.req({
+                url: '../module/doedit'
+                , type: 'post'
+                , contentType: 'application/json;charset=utf-8'
+                , data: JSON.stringify(data.field)
+                , success: function (res) {
+                    if (res.code == 1) {
+                        parent.layer.msg(msg);
+                        return false;
+                    }
+
+                    //当你在iframe页面关闭自身时
+                    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                    parent.layer.close(index); //再执行关闭
+                    parent.layer.msg(res.msg);
+
+                }
+                , fail: function (res) {
+                    // console.log("#######fail######")
+                    console.log(res)
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+</body>
+</html>
