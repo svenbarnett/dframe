@@ -39,6 +39,7 @@
         <tk.mybatis.version>4.1.5</tk.mybatis.version>
         <mapper-spring-boot-starter.version>2.1.5</mapper-spring-boot-starter.version>
         <bcprov-jdk15.version>1.46</bcprov-jdk15.version>
+        <shiro.version>1.4.0</shiro.version>
     </properties>
 
 
@@ -128,8 +129,51 @@
                 <artifactId>bcprov-jdk15</artifactId>
                 <version>${bcprov-jdk15.version}</version>
             </dependency>
-        </dependencies>
 
+            <!-- excel 处理/-->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>4.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>4.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>1.18</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>4.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>3.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.virtuald</groupId>
+                <artifactId>curvesapi</artifactId>
+                <version>1.06</version>
+            </dependency>
+
+            <!-- shiro-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 
     <build>

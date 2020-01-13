@@ -10,6 +10,15 @@ spring:
     mode: HTML
     prefix: classpath:/templates/
     suffix: .html
+  resources:
+    static-locations: classpath:/static/, classpath:/templates/, classpath:/xmgxh/
 mybatis:
   mapper-locations: mapper/*.xml
   type-aliases-package: cn.svenbarnett.dframe.domain
+
+
+# shiro Filter 路由
+shiroFilter:
+  loginUrl: frame/login/login
+  successUrl: frame/main/index
+  unauthorizedUrl: frame/main/unauthorized

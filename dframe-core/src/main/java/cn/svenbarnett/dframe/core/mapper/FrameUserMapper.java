@@ -4,8 +4,6 @@ import cn.svenbarnett.dframe.domain.FrameUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 /**
  * [简单描述]
  *
@@ -22,5 +20,5 @@ public interface FrameUserMapper {
      * @param loginid 登陆id
      * @return 用户信息
      */
-    List<FrameUser> selectAllByLoginid(@Param("loginid") String loginid);
+    FrameUser selectAllByLoginid(@Param("loginid") String loginid);
 }
