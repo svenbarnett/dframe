@@ -17,6 +17,8 @@
 
     <modules>
         <module>../dframe-core</module>
+        <module>../dframe-web</module>
+        <module>../dframe-domain</module>
     </modules>
 
     <properties>
@@ -33,11 +35,25 @@
         <ehcache.core.version>2.6.11</ehcache.core.version>
         <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
         <jwt.version>0.7.0</jwt.version>
+        <lombok.version>1.18.2</lombok.version>
+        <tk.mybatis.version>4.1.5</tk.mybatis.version>
+        <mapper-spring-boot-starter.version>2.1.5</mapper-spring-boot-starter.version>
+        <bcprov-jdk15.version>1.46</bcprov-jdk15.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>cn.svenbarnett.dframe</groupId>
+                <artifactId>dframe-core</artifactId>
+                <version>${dframe.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.svenbarnett.dframe</groupId>
+                <artifactId>dframe-domain</artifactId>
+                <version>${dframe.version}</version>
+            </dependency>
             <!-- shiro依赖 -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
@@ -77,11 +93,40 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commons.io.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
             <!-- 缓存ehcache -->
             <dependency>
                 <groupId>org.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
                 <version>${ehcache.version}</version>
+            </dependency>
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!--tkmapper-->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${tk.mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mapper-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15</artifactId>
+                <version>${bcprov-jdk15.version}</version>
             </dependency>
         </dependencies>
 

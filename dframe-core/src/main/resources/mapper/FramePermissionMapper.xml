@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.svenbarnett.dframe.core.mapper.FramePermissionMapper">
+
+    <resultMap id="framePermissionMap" type="cn.svenbarnett.dframe.domain.FramePermission">
+        <id property="rowguid" column="rowguid"/>
+        <result property="permissionName" column="permission_name"/>
+        <result property="uri" column="uri"/>
+        <result property="parentguid" column="parentguid"/>
+        <result property="type" column="type"/>
+        <result property="creator" column="creator"/>
+        <result property="updater" column="updater"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleteTime" column="delete_time"/>
+        <result property="updater" column="updater"/>
+        <collection property="roles" ofType="cn.svenbarnett.dframe.domain.FrameRole">
+            <id property="rowguid" column="rowguid"/>
+            <result property="roleName" column="role_name"/>
+            <result property="status" column="status"/>
+            <result property="creator" column="reator"/>
+            <result property="updater" column="updater"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateTime" column="update_time"/>
+            <result property="deleteTime" column="delete_time"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAll" resultMap="framePermissionMap">
+        select *
+        from frame_role r
+                 inner join frame_role_permission pr on r.rowguid = pr.roleguid
+                 inner join frame_permission p on pr.permissionguid = p.rowguid
+    </select>
+
+</mapper>

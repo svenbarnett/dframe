@@ -1,0 +1,15 @@
+#基本配置
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  thymeleaf:
+    cache: false
+    encoding: utf-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+mybatis:
+  mapper-locations: mapper/*.xml
+  type-aliases-package: cn.svenbarnett.dframe.domain
