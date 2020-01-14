@@ -1,8 +1,7 @@
 # DFrame java开源框架
 
 <p align="center">
-    <img src="https://imgchr.com/i/lbXHeO" width="300">
-    <br>      
+    <img src="https://s2.ax1x.com/2020/01/14/lbXHeO.png" width="300">
     <br>      
     <p align="center">
        DFrame Java开源框架。
