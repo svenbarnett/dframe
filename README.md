@@ -1,11 +1,11 @@
 # DFrame java开源框架
 
 <p align="center">
-    <img src="https://images.gitee.com/uploads/images/2019/0109/214218_d2aa949b_551203.png" width="300">
+    <img src="https://imgchr.com/i/lbXHeO" width="300">
     <br>      
     <br>      
     <p align="center">
-       DFrame java开源框架 基于Spring Boot2，致力于做更简洁的后台管理系统。包含系统管理，代码生成，多数据库适配，SSO单点登录，工作流，短信，邮件发送，OAuth2登录，任务调度，持续集成，docker部署等功。支持Spring Cloud Alibaba微服务。社区活跃，版本迭代快，加群免费技术支持。
+       DFrame Java开源框架。
         <br>      
         <br> 
         <br>
