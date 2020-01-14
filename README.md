@@ -7,11 +7,11 @@
        DFrame Java开源框架。
         <br>
         <a href="https://www.layui.com">
-            <img src="https://img.shields.io/badge/layui-2.5.5-blue.svg" alt="bootstrap">
+            <img src="https://img.shields.io/badge/Layui-v2.5.5-brightgreen" alt="layui-v2.5.5">
         </a>  
         +
         <a href="http://spring.io/projects/spring-boot">
-            <img src="https://img.shields.io/badge/spring--boot-2.1.6-green.svg" alt="spring-boot">
+            <img src=https://img.shields.io/badge/SpringBoot-v2.1.2-blue" alt="spring-boot">
         </a>
     </p>
 </p>
